@@ -1,24 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --color-background: oklch(1 0 0);
-  --color-foreground: oklch(0.145 0 0);
-  --color-card: oklch(1 0 0);
-  --color-card-foreground: oklch(0.145 0 0);
-  --color-primary: oklch(0.205 0 0);
-  --color-primary-foreground: oklch(0.985 0 0);
-  --color-secondary: oklch(0.97 0 0);
-  --color-secondary-foreground: oklch(0.205 0 0);
-  --color-muted: oklch(0.97 0 0);
-  --color-muted-foreground: oklch(0.556 0 0);
-  --color-accent: oklch(0.97 0 0);
-  --color-accent-foreground: oklch(0.205 0 0);
+  --font-sans: "SF Pro Display", "SF Pro Text", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  --color-void: #0A0A0A;
+  --color-surface: #141414;
+  --color-light: #E8E8E8;
+  --color-white: #FFFFFF;
+  --color-muted: #666666;
+
+  --color-background: #0A0A0A;
+  --color-foreground: #E8E8E8;
+  --color-card: #141414;
+  --color-card-foreground: #E8E8E8;
+  --color-primary: #FFFFFF;
+  --color-primary-foreground: #0A0A0A;
+  --color-secondary: #141414;
+  --color-secondary-foreground: #E8E8E8;
+  --color-muted: #666666;
+  --color-muted-foreground: #666666;
+  --color-accent: #141414;
+  --color-accent-foreground: #FFFFFF;
   --color-destructive: oklch(0.577 0.245 27.325);
-  --color-border: oklch(0.922 0 0);
-  --color-input: oklch(0.922 0 0);
-  --color-ring: oklch(0.708 0 0);
+  --color-border: #1a1a1a;
+  --color-input: #1a1a1a;
+  --color-ring: #666666;
   --radius: 0.5rem;
 }
 
@@ -30,4 +37,31 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow {
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.05);
+  }
+
+  .glass {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
